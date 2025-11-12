@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose Jhair Cholan Vigo - Portafolio Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at top, rgba(88, 101, 242, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
+            border-bottom: 2px solid rgba(88, 101, 242, 0.5);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .gamer-tag {
+            color: #8b5cf6;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #8b5cf6;
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 100px auto 50px;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: rgba(15, 20, 45, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(88, 101, 242, 0.2);
+            border: 1px solid rgba(88, 101, 242, 0.3);
+            animation: fadeIn 0.6s ease-in;
+            color: #e2e8f0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #8b5cf6;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        h2 {
+            color: #a78bfa;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #5865f2;
+            padding-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(88, 101, 242, 0.3);
+        }
+
+        h3 {
+            color: #8b5cf6;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .profile-info {
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.3) 0%, rgba(139, 92, 246, 0.3) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+            border: 2px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 5px 20px rgba(88, 101, 242, 0.3);
+        }
+
+        .video-container {
+            background: rgba(10, 14, 39, 0.6);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 2px solid rgba(88, 101, 242, 0.4);
+            box-shadow: 0 5px 20px rgba(88, 101, 242, 0.2);
+        }
+
+        .video-presentation {
+            background: rgba(15, 20, 45, 0.9);
+            color: #e2e8f0;
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #8b5cf6;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .video-presentation h3 {
+            color: #a78bfa;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .video-presentation p {
+            margin-bottom: 1rem;
+        }
+
+        .video-presentation strong {
+            color: #8b5cf6;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            color: white;
+            transition: all 0.3s;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+            border-color: rgba(139, 92, 246, 0.6);
+        }
+
+        .canvas-container {
+            background: rgba(15, 20, 45, 0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(88, 101, 242, 0.3);
+        }
+
+        .canvas-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: zoom-in;
+            display: block;
+            margin: 1.5rem auto;
+        }
+
+        .canvas-img.zoomed {
+            transform: scale(1.5);
+            z-index: 1000;
+            position: relative;
+            cursor: zoom-out;
+        }
+
+        .values-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .value-tag {
+            background: linear-gradient(135deg, #5865f2 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.5);
+        }
+
+        .foda-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .foda-card {
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid;
+            background: rgba(15, 20, 45, 0.6);
+            color: #e2e8f0;
+        }
+
+        .fortaleza { 
+            border-left-color: #10b981; 
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.2);
+        }
+        .oportunidad { 
+            border-left-color: #3b82f6;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+        .debilidad { 
+            border-left-color: #ef4444;
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.2);
+        }
+        .amenaza { 
+            border-left-color: #f59e0b;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.2);
+        }
+
+        .meta-card {
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.4) 0%, rgba(139, 92, 246, 0.4) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid rgba(139, 92, 246, 0.5);
+            box-shadow: 0 10px 30px rgba(88, 101, 242, 0.3);
+        }
+
+        .objetivos-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .objetivos-list li {
+            background: rgba(15, 20, 45, 0.8);
+            color: #e2e8f0;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #8b5cf6;
+            box-shadow: 0 3px 10px rgba(139, 92, 246, 0.2);
+        }
+
+        .hobbies {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .hobby-tag {
+            background: linear-gradient(135deg, #5865f2 0%, #8b5cf6 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 10px rgba(88, 101, 242, 0.3);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+        }
+
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 2px solid rgba(88, 101, 242, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .foda-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                Jose Jhair Cholan Vigo
+                <div class="gamer-tag">🎮 25._OTAKUN_.05</div>
+            </div>
+            <nav>
+                <a href="#presentacion">Presentación</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#retos">Retos</a>
+                <a href="#plan de accion">Plan de Acción</a>
+                <a href="#canvas">Canvas</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- SECCIÓN 1: PRESENTACIÓN PERSONAL -->
+        <section id="presentacion" class="section">
+            <div class="intro">
+                <h1>🚀 Proyecto Emprendedor Personal</h1>
+                <div class="profile-info">
+                    <h2 style="color: white; border: none;">Jose Jhair Cholan Vigo</h2>
+                    <p><strong>Carrera:</strong> Ingeniería de Sistemas - 4to Ciclo</p>
+                    <p><strong>Gamer Tag:</strong> 25._OTAKUN_.05</p>
+                </div>
+
+                <!-- Video de Presentación -->
+                <div class="video-container">
+                    <h3 style="color: #a78bfa; text-align: center; margin-bottom: 1.5rem;">🎥 Video de Presentación</h3>
+                    <video src="imagen y video/VIDEO FINAL.mp4" controls style="width: 100%; max-width: 500px; display: block; margin: 0 auto 2rem auto; border-radius: 10px;"></video>
+                    <div class="video-presentation">
+                        <p><strong>¡Hola! Soy Jose Jhair Cholan Vigo</strong></p>
+                        
+                        <p>Actualmente curso el cuarto ciclo de Ingeniería de Sistemas, una carrera que he elegido porque combina perfectamente mi pasión por la tecnología y mi curiosidad constante por aprender cosas nuevas.</p>
+                        
+                        <p>En el ámbito gamer, me conocen como <strong style="color: #8b5cf6;">25._OTAKUN_.05</strong>. Los videojuegos han sido más que un pasatiempo para mí; me han enseñado pensamiento estratégico a través de juegos de estrategia y me han permitido explorar mundos increíbles en títulos de mundo abierto. Cada juego es una oportunidad de aprender sobre resolución de problemas y toma de decisiones bajo presión.</p>
+                        
+                        <p>Más allá de la tecnología y los videojuegos, el dibujo es otra de mis grandes pasiones. Me permite expresar mi creatividad de formas que las palabras no pueden. La lectura también ocupa un lugar especial en mi vida; siempre estoy buscando nuevas historias e ideas que amplíen mi perspectiva del mundo.</p>
+                        
+                        <p>Lo que me define como persona son dos valores fundamentales: la <strong style="color: #10b981;">responsabilidad</strong> y el <strong style="color: #3b82f6;">compromiso</strong>. Estos valores guían cada decisión que tomo, desde mis estudios hasta mis proyectos personales. Creo firmemente en la autodisciplina y en la curiosidad de superación constante.</p>
+                        
+                        <p>Mi familia, especialmente mis padres, han sido pilares fundamentales en mi desarrollo. El pensar que en el futuro puedo contribuir a su bienestar me motiva a seguir adelante cada día. Además, valoro enormemente a mis profesores y compañeros, quienes ven en mí un potencial para crecer tanto personal como profesionalmente.</p>
+                        
+                        <p>Este portafolio representa mi viaje de crecimiento personal y profesional. Aquí encontrarás un análisis profundo de mis habilidades, mis metas y el camino que estoy trazando para convertirme en un profesional destacado en el campo de la tecnología.</p>
+                        
+                        <p style="text-align: center; margin-top: 1.5rem; color: #8b5cf6; font-weight: bold;">¡Gracias por tomarte el tiempo de conocerme! 🚀</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>🎯 Autoliderazgo</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>📚 Autodisciplina</h4>
+                    <p>Mantengo una actitud positiva y perseverante. Me comprometo con mis estudios y desarrollo personal, estableciendo metas claras y trabajando consistentemente para alcanzarlas.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>🎓 Curiosidad de Superación</h4>
+                    <p>Soy una persona curiosa con deseos de superación constante. Busco siempre aprender cosas nuevas tanto en tecnología como en mis áreas de interés personal.</p>
+                </div>
+            </div>
+
+            <h3>💎 Valores Fundamentales</h3>
+            <div class="values-list">
+                <div class="value-tag">Responsabilidad</div>
+                <div class="value-tag">Compromiso</div>
+            </div>
+            <p>Estos valores guían mi conducta diaria, me distinguen por mi compromiso en los estudios y mi responsabilidad al asumir tareas y proyectos.</p>
+
+            <h3>👥 Personas Influyentes</h3>
+            <p><strong>Mis padres y familiares cercanos:</strong> Han sido fundamentales en mi desarrollo personal, el pensar que un futuro pueda contribuir en algo para su bienestar me hace sentir orgulloso del camino que estoy tomando.</p>
+            <p><strong>Profesores, compañeros y futuras conexiones:</strong> Son personas que pueden ver mi potencial para crecer personal y profesionalmente, aportando conocimientos y perspectivas valiosas.</p>
+
+            <h3>🧠 Inteligencias Múltiples</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Inteligencia Lógico-Matemática</h4>
+                    <p>Desarrollada principalmente por mi formación en Ingeniería de Sistemas y mi gusto por juegos de estrategia que requieren pensamiento analítico.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Inteligencia Visual-Espacial</h4>
+                    <p>Fortalecida por mi pasión por el dibujo y los videojuegos de mundo abierto, que me han ayudado a desarrollar la capacidad de visualizar y crear conceptos.</p>
+                </div>
+            </div>
+
+            <h3>🎮 Intereses y Hobbies</h3>
+            <div class="hobbies">
+                <div class="hobby-tag">🎮 Videojuegos de Mundo Abierto</div>
+                <div class="hobby-tag">♟️ Juegos de Estrategia</div>
+                <div class="hobby-tag">🎨 Dibujo</div>
+                <div class="hobby-tag">📖 Lectura</div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: HABILIDADES -->
+        <section id="habilidades" class="section">
+            <h2>💪 Habilidades Desarrolladas</h2>
+
+            <h3>Habilidades Personales</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Autodisciplina</h4>
+                    <p>Capacidad para mantener el enfoque en mis objetivos académicos y personales, gestionando eficientemente mi tiempo entre estudios y actividades recreativas.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Creatividad</h4>
+                    <p>Desarrollada a través del dibujo y la resolución de problemas en programación, me permite encontrar soluciones innovadoras.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Pensamiento Analítico</h4>
+                    <p>Fortalecido por los juegos de estrategia y la programación, me ayuda a descomponer problemas complejos en partes manejables.</p>
+                </div>
+            </div>
+
+            <h3>Habilidades Sociales</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Trabajo en Equipo</h4>
+                    <p>Utilizo estrategias como participar activamente en clase y proyectos, compartiendo ideas con mis compañeros para lograr objetivos comunes.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Comunicación</h4>
+                    <p>Comparto apuntes, ideas y colaboro en trabajos grupales, desarrollando mi capacidad de expresar conceptos técnicos de manera clara.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Participación Comunitaria</h4>
+                    <p>Participo en actividades solidarias o voluntariados estudiantiles, aportando al desarrollo de mi entorno universitario.</p>
+                </div>
+            </div>
+
+            <h3>Habilidades Directivas</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Planificación</h4>
+                    <p>Organizo mis actividades académicas y proyectos personales con anticipación, estableciendo prioridades y plazos.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Toma de Decisiones</h4>
+                    <p>Analizo opciones y consecuencias antes de actuar, aplicando pensamiento crítico en situaciones académicas y personales.</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Liderazgo en Proyectos</h4>
+                    <p>Capacidad para coordinar equipos en trabajos grupales, distribuyendo tareas y manteniendo la motivación del equipo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: RETOS Y FODA -->
+        <section id="retos" class="section">
+            <h2>🎯 Retos y Análisis FODA</h2>
+
+            <div class="foda-grid">
+                <div class="foda-card fortaleza">
+                    <h4>💪 Fortalezas</h4>
+                    <ul>
+                        <li>Compromiso con los estudios</li>
+                        <li>Pensamiento analítico desarrollado</li>
+                        <li>Creatividad y pasión por aprender</li>
+                    </ul>
+                </div>
+                <div class="foda-card oportunidad">
+                    <h4>🌟 Oportunidades</h4>
+                    <ul>
+                        <li>Crecimiento en la industria tecnológica</li>
+                        <li>Conexiones con mentores y compañeros</li>
+                        <li>Proyectos universitarios desafiantes</li>
+                    </ul>
+                </div>
+                <div class="foda-card debilidad">
+                    <h4>📉 Debilidad Principal</h4>
+                    <p><strong>Gestión del tiempo entre múltiples intereses</strong></p>
+                    <p>A veces me cuesta balancear eficientemente mis estudios con mis hobbies y actividades personales.</p>
+                </div>
+                <div class="foda-card amenaza">
+                    <h4>⚠️ Amenazas</h4>
+                    <ul>
+                        <li>Distracciones digitales</li>
+                        <li>Sobrecarga académica</li>
+                        <li>Procrastinación ocasional</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>🔍 Análisis de Mi Debilidad</h3>
+            <p><strong>Debilidad:</strong> Gestión del tiempo entre estudios y actividades personales.</p>
+
+            <h4>Causas:</h4>
+            <ol>
+                <li>Falta de un sistema de priorización estructurado</li>
+                <li>Subestimación del tiempo requerido para tareas académicas</li>
+                <li>Dificultad para establecer límites en actividades recreativas</li>
+            </ol>
+
+            <h4>Consecuencias:</h4>
+            <ol>
+                <li>Estrés ocasional por acumulación de tareas</li>
+                <li>Rendimiento académico inferior al potencial</li>
+                <li>Reducción del tiempo para desarrollo de proyectos personales</li>
+            </ol>
+
+            <h4>💡 Solución Propuesta:</h4>
+            <p>Implementar un sistema de planificación semanal con bloques de tiempo dedicados específicamente a estudios, proyectos y actividades recreativas, utilizando técnicas como Pomodoro y matrices de Eisenhower.</p>
+
+            <div class="meta-card">
+                <h3>🎯 Meta Principal</h3>
+                <p><strong>Lograr una gestión del tiempo eficiente que me permita mantener un promedio académico destacado (15+) mientras desarrollo proyectos personales y mantengo mis hobbies, en los próximos 6 meses.</strong></p>
+
+                <h4>Objetivos Específicos a Corto Plazo:</h4>
+                <ul class="objetivos-list">
+                    <li>📅 Crear y seguir un horario semanal estructurado en las próximas 2 semanas</li>
+                    <li>⏰ Implementar técnica Pomodoro (25 min trabajo / 5 min descanso) en el próximo mes</li>
+                    <li>📊 Utilizar una app de gestión de tareas y evaluar progreso semanalmente</li>
+                </ul>
+
+                <h4>Sustentos y Medios:</h4>
+                <ul class="objetivos-list">
+                    <li>📱 Herramientas digitales: Notion, Trello o Google Calendar para organización</li>
+                    <li>👥 Apoyo de compañeros para crear grupos de estudio y accountability</li>
+                    <li>📚 Recursos de productividad: libros, videos y cursos sobre gestión del tiempo</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: ACCIONES -->
+        <section id="plan de accion" class="section">
+            <h2>⚡ Plan de Acción</h2>
+
+            <h3>Objetivo 1: Horario Estructurado</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Acción 1</h4>
+                    <p>Mapear todas mis actividades semanales actuales y identificar espacios optimizables</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Acción 2</h4>
+                    <p>Diseñar horario visual con colores por categoría (estudios, proyectos, ocio) y colocarlo visible</p>
+                </div>
+            </div>
+
+            <h3>Objetivo 2: Técnica Pomodoro</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Acción 1</h4>
+                    <p>Descargar app Pomodoro y configurar sesiones de 25 minutos de estudio concentrado</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Acción 2</h4>
+                    <p>Establecer meta diaria: completar mínimo 4 pomodoros en tareas académicas prioritarias</p>
+                </div>
+            </div>
+
+            <h3>Objetivo 3: App de Gestión</h3>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>Acción 1</h4>
+                    <p>Configurar Notion con tableros para cada curso y proyectos personales</p>
+                </div>
+                <div class="skill-card">
+                    <h4>Acción 2</h4>
+                    <p>Realizar revisión semanal cada domingo para planificar la semana siguiente</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: BUSINESS MODEL CANVAS -->
+        <section id="canvas" class="section">
+            <h2>🎨 Business Model You (Canvas Personal)</h2>
+            
+            <div class="canvas-container">
+                <h3>Mi Canvas Personal</h3>
+                <p style="margin-bottom: 1rem;">A continuación se presenta mi Business Model Canvas personal, que refleja mi propuesta de valor, recursos clave y relaciones que cultivo para mi desarrollo profesional y personal.</p>
+                
+                <img src="imagen y video/canvas burnisses.png" class="canvas-img" onclick="this.classList.toggle('zoomed')">
+
+                <h4>💎 Valor Personal</h4>
+                <p>Mi entorno personal y comunidad me reconocen por:</p>
+                <ul>
